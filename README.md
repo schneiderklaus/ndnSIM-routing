@@ -1,31 +1,40 @@
-ndnSIM
-======
+# Implementation of LFID (Loop-Free Inport-Dependent) Routing
 
-[![Build Status](https://travis-ci.org/named-data-ndnSIM/ndnSIM.svg)](https://travis-ci.org/named-data-ndnSIM/ndnSIM)
+LFID (Loop-Free Inport-Dependent) Routing extends the ndnSIM route calculation to provide many more loop-free paths/nexthops than existing work. The only constraint is that the forwarding strategy has to exclude the incoming interface at each router.
 
-A new release of [NS-3 based Named Data Networking (NDN) simulator](http://ndnsim.net/)
-went through extensive refactoring and rewriting.  The key new features of the new
-version:
+This provides a much better trade-off than the existing route calculation algorithms:
 
-- [NDN Packet Specification](http://named-data.net/doc/NDN-packet-spec/current/)
+1. CalculateRoutes(): Only provides a single shortest path nexthop. 
+2. CalculateAllPossibleRoutes(): Provides all possible nexthops, but many of them lead to loops. 
+ 
 
-- ndnSIM uses implementation of basic NDN primitives from
-  [ndn-cxx library (NDN C++ library with eXperimental eXtensions)](http://named-data.net/doc/ndn-cxx/)
+## Installation
 
-  Based on version `0.6.5`
+The installation procedure is straight forward and similar to the one of [ndnSIM](https://ndnsim.net/current/getting-started.html):
 
-- All NDN forwarding and management is implemented directly using source code of
-  [Named Data Networking Forwarding Daemon (NFD)](http://named-data.net/doc/NFD/)
 
-  Based on version `0.6.5`
+```bash
+git clone https://github.com/named-data-ndnSIM/ns-3-dev.git ns-3
+git clone --recursive https://github.com/schneiderklaus/ndnSIM-routing ns-3/src/ndnSIM
 
-- Allows [simulation of real applications](http://ndnsim.net/guide-to-simulate-real-apps.html)
-  written against ndn-cxx library
+cd <ns-3-folder>
+./waf configure --enable-examples
+./waf
+```
 
-- Requires a modified version of NS-3 based on version `ns-3.29`
+## Example Experiments
 
-[ndnSIM documentation](http://ndnsim.net)
----------------------------------------------
+I provide an example to compare the route calculation methods in the grid.cpp file. Simply uncomment one of 
+- routingHelper.CalculateRoutes();
+- routingHelper.CalculateAllPossibleRoutes();
+- routingHelper.CalculateLFIDRoutes();
+ 
+then run:
 
-For more information, including downloading and compilation instruction, please refer to
-http://ndnsim.net or documentation in `docs/` folder.
+```bash
+./waf --run grid
+```
+
+The output will show the nexthops at each node for destination node 8, and any loops during forwarding.
+
+
