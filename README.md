@@ -16,6 +16,12 @@ The installation procedure is straight forward and similar to the one of [ndnSIM
 
 First install all dependencies from https://ndnsim.net/2.7/getting-started.html
 
+For Ubuntu Linux this is done via:
+
+```bash
+sudo apt install build-essential libsqlite3-dev libboost-all-dev libssl-dev git python-setuptools castxml
+```
+
 ### Compiling the Code
 
 ```bash
