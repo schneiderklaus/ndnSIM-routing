@@ -6,7 +6,9 @@ This provides a much better trade-off than the existing route calculation algori
 
 1. CalculateRoutes(): Only provides a single shortest path nexthop. 
 2. CalculateAllPossibleRoutes(): Provides all possible nexthops, but many of them lead to loops. 
- 
+
+LFID, on the other hand, maximizes the nexthop choice while also completely avoiding loops.
+
 
 ## Installation
 
@@ -26,6 +28,7 @@ cd <ns-3-folder>
 ./waf configure --enable-examples
 ./waf
 ```
+
 
 ## Example Experiments
 
