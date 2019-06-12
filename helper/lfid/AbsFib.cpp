@@ -96,6 +96,12 @@ size_t AbsFib::erase(int dstId, int nhId) {
   {
     return item.getNhId() == nhId;
   });
+
+  // Element doesn't exist:
+  if(fibNh == fib.end()){
+    return 0;
+  }
+
   assert(fibNh != perDstFib.at(dstId).end());
   assert(fibNh->getType() == NextHopType::UPWARD);
   totalNhCounter--;
