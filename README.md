@@ -24,7 +24,7 @@ cd <ns-3-folder>
 
 ## Example Experiments
 
-I provide an example to compare the route calculation methods in the grid.cpp file. Simply uncomment one of 
+I provide an example to compare the route calculation methods in the **ndnSIM/examples/grid.cpp** file. Simply uncomment one of 
 - routingHelper.CalculateRoutes();
 - routingHelper.CalculateAllPossibleRoutes();
 - routingHelper.CalculateLFIDRoutes();
