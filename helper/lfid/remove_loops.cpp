@@ -60,7 +60,7 @@ void getDigraphFromFib(DiGraph &dg, const AllNodeFib &allNodeFIB,
 
     for (const auto &fibNh : node.second.getNhs(dstId)) {
       assert(fibNh.getType() <= NextHopType::UPWARD);
-      boost::add_edge(static_cast<ulong>(nodeId), static_cast<ulong>(fibNh.getNhId()), 1, dg);
+      boost::add_edge(static_cast<uint64_t>(nodeId), static_cast<uint64_t>(fibNh.getNhId()), 1, dg);
     }
   }
 }
@@ -179,7 +179,7 @@ int removeLoops(AllNodeFib &allNodeFIB, bool printOutput) {
 
       // Remove opposite of Uphill link
 //      int arcId1 {getArcId(arcMap, nhId, nodeId)};
-      auto res = boost::edge(static_cast<ulong>(nhId), static_cast<ulong>(nodeId), dg);
+      auto res = boost::edge(static_cast<uint64_t>(nhId), static_cast<uint64_t>(nodeId), dg);
 
       auto arc = res.first;
       bool arcExists = res.second;
@@ -205,7 +205,7 @@ int removeLoops(AllNodeFib &allNodeFIB, bool printOutput) {
       }
 
       // TODO: Could be replaced by BFS/DFS to improve speed.
-      boost::dijkstra_shortest_paths(dg, static_cast<ulong>(nhId),
+      boost::dijkstra_shortest_paths(dg, static_cast<uint64_t>(nhId),
           distance_map(boost::make_iterator_property_map(dists.begin(), get(boost::vertex_index, dg)))
       );
 
@@ -223,7 +223,7 @@ int removeLoops(AllNodeFib &allNodeFIB, bool printOutput) {
 //        int arcId2 = getArcId(arcMap, node.getId(), nhId);
 //        assert(arcId2 >=0);
 
-        auto res2 = boost::edge(static_cast<ulong>(node.getId()), static_cast<ulong>(nhId), dg);
+        auto res2 = boost::edge(static_cast<uint64_t>(node.getId()), static_cast<uint64_t>(nhId), dg);
         auto arc2 = res2.first;
         assert(res.second);
 
@@ -235,7 +235,7 @@ int removeLoops(AllNodeFib &allNodeFIB, bool printOutput) {
 
       // Add opposite of UW link back:
       if (arcExists) {
-        boost::add_edge(static_cast<ulong>(nhId), static_cast<ulong>(nodeId), 1, dg);
+        boost::add_edge(static_cast<uint64_t>(nhId), static_cast<uint64_t>(nodeId), 1, dg);
 //        auto arc = dg.addArc(dg.nodeFromId(nhId), dg.nodeFromId(nodeId));
 //        arcMap.emplace(std::make_pair(nhId, nodeId), dg.id(arc));
       }

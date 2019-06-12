@@ -1,6 +1,6 @@
 # Implementation of LFID (Loop-Free Inport-Dependent) Routing
 
-LFID (Loop-Free Inport-Dependent) Routing extends the ndnSIM route calculation to provide many more loop-free paths/nexthops than existing work. The only constraint is that the forwarding strategy has to exclude the incoming interface at each router.
+LFID (Loop-Free Inport-Dependent) Routing extends the ndnSIM route calculation to provide many more loop-free paths/nexthops than existing work. The only constraint is that the forwarding strategy has to exclude the incoming interface at each node. TODO: Include reference to tech report.
 
 This provides a much better trade-off than the existing route calculation algorithms:
 
@@ -15,12 +15,6 @@ The installation procedure is straight forward and similar to the one of [ndnSIM
 ### Prerequisites
 
 First install all dependencies from https://ndnsim.net/2.7/getting-started.html
-
-For Ubuntu Linux this is done via:
-
-```bash
-sudo apt install build-essential libsqlite3-dev libboost-all-dev libssl-dev git python-setuptools castxml
-```
 
 ### Compiling the Code
 
