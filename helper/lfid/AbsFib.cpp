@@ -98,7 +98,9 @@ size_t AbsFib::erase(int dstId, int nhId) {
   });
 
   // Element doesn't exist:
-  if(fibNh == fib.end()){
+  if(fibNh == fib.end()) {
+
+    // TODO: Figure out why this happens.
     return 0;
   }
 
