@@ -100,6 +100,15 @@ public:
   static void
   CalculateRoutes();
 
+
+  /**
+   * @brief Calculates a set of loop-free multipath routes.
+   *
+   * TODO: Describe and link to tech report/paper.
+   */
+  static void
+  CalculateLFIDRoutes();
+
   /**
    * @brief Calculate all possible next-hop independent alternative routes
    *

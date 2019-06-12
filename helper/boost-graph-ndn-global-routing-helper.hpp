@@ -30,7 +30,9 @@
 
 #include "ns3/ndnSIM/model/ndn-global-router.hpp"
 
+#include "ns3/node.h"
 #include "ns3/node-list.h"
+#include "ns3/channel.h"
 #include "ns3/channel-list.h"
 
 #include <list>

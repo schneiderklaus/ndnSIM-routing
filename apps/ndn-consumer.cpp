@@ -265,6 +265,8 @@ Consumer::OnNack(shared_ptr<const lp::Nack> nack)
 void
 Consumer::OnTimeout(uint32_t sequenceNumber)
 {
+  std::cerr << "Timeout for packet: " << sequenceNumber << "\n";
+
   NS_LOG_FUNCTION(sequenceNumber);
   // std::cout << Simulator::Now () << ", TO: " << sequenceNumber << ", current RTO: " <<
   // m_rtt->RetransmitTimeout ().ToDouble (Time::S) << "s\n";
