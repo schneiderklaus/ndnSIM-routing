@@ -10,8 +10,13 @@ This provides a much better trade-off than the existing route calculation algori
 
 ## Installation
 
-The installation procedure is straight forward and similar to the one of [ndnSIM](https://ndnsim.net/current/getting-started.html):
+The installation procedure is straight forward and similar to the one of [ndnSIM](https://ndnsim.net/2.7/getting-started.html):
 
+### Prerequisites
+
+First install all dependencies from https://ndnsim.net/2.7/getting-started.html
+
+### Compiling the Code
 
 ```bash
 git clone https://github.com/named-data-ndnSIM/ns-3-dev.git ns-3
