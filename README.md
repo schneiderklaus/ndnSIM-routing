@@ -44,7 +44,7 @@ in the [ndnSIM/examples/grid.cpp](examples/grid.cpp) or [ndnSIM/examples/abilene
 ./waf --run abilene
 ```
 
-The output will show the nexthops at each node for destination node 8, and any loops during forwarding.
+The output will show the nexthops at each node for the given name prefix, and any loops during forwarding.
 
 
 ## Changes in Forwarding strategy 
