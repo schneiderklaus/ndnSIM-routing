@@ -1,8 +1,8 @@
-# Implementation of LFID (Loop-Free Inport-Dependent) Routing
+# LFID (Loop-Free Inport-Dependent) Routing for ndnSIM
 
-LFID (Loop-Free Inport-Dependent) Routing extends the ndnSIM route calculation to provide many more loop-free paths/nexthops than existing work. The only constraint is that the forwarding strategy has to exclude the incoming interface at each node. TODO: Include reference to tech report.
+LFID (Loop-Free Inport-Dependent) Routing extends the ndnSIM route calculation to provide more and shorter loop-free paths than existing work. For details see the [tech report](https://named-data.net/publications/techreports/mp_routing_tech_report/)
 
-This provides a much better trade-off than the existing route calculation algorithms:
+LFID provides a much better trade-off than the existing route calculation algorithms:
 
 1. CalculateRoutes(): Only provides a single shortest path nexthop. 
 2. CalculateAllPossibleRoutes(): Provides all possible nexthops, but many of them lead to loops. 
@@ -32,17 +32,22 @@ cd <ns-3-folder>
 
 ## Example Experiments
 
-I provide an example to compare the route calculation methods in the **ndnSIM/examples/grid.cpp** file. Simply uncomment one of 
+I provide an example 3x3 grid topology to compare against the existing route calculation methods. Simply uncomment one of 
 - routingHelper.CalculateRoutes();
 - routingHelper.CalculateAllPossibleRoutes();
 - routingHelper.CalculateLFIDRoutes();
  
-then run:
+in the **ndnSIM/examples/grid.cpp** file, then run:
 
 ```bash
 ./waf --run grid
 ```
 
 The output will show the nexthops at each node for destination node 8, and any loops during forwarding.
+
+
+## Changes in Forwarding strategy 
+
+LFID requires that the forwarding strategy always excludes the incoming face from the outgoing options. I provide an example implementation in **ndnSIM/NFD/daemon/fw/random-strategy.cpp**.
 
 
