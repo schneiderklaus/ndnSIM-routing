@@ -45,7 +45,7 @@ int
 main()
 {
   AnnotatedTopologyReader topologyReader{};
-  topologyReader.SetFileName("src/ndnSIM/examples/topologies/topo-grid.txt");
+  topologyReader.SetFileName("src/ndnSIM/examples/topologies/topo-abilene.txt");
   topologyReader.Read();
 
   ndn::StackHelper stackHelper {};
@@ -59,7 +59,7 @@ main()
 
   const NodeContainer allNodes {topologyReader.GetNodes()};
   const auto& consumerN {allNodes.Get(0)};
-  const auto& producerN {allNodes.Get(8)};
+  const auto& producerN {allNodes.Get(10)};
 
   ndn::GlobalRoutingHelper routingHelper {};
   routingHelper.InstallAll(); // Fills GlobalRouter with incidencies.

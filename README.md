@@ -32,15 +32,16 @@ cd <ns-3-folder>
 
 ## Example Experiments
 
-I provide an example 3x3 grid topology to compare against the existing route calculation methods. Simply uncomment one of 
+I provide two example topologies to compare against the existing route calculation methods. Simply uncomment one of 
 - routingHelper.CalculateRoutes();
 - routingHelper.CalculateAllPossibleRoutes();
 - routingHelper.CalculateLFIDRoutes();
  
-in the [ndnSIM/examples/grid.cpp](examples/grid.cpp) file, then run:
+in the [ndnSIM/examples/grid.cpp](examples/grid.cpp) or [ndnSIM/examples/abilene.cpp](examples/abilene.cpp) file, then run:
 
 ```bash
 ./waf --run grid
+./waf --run abilene
 ```
 
 The output will show the nexthops at each node for destination node 8, and any loops during forwarding.
