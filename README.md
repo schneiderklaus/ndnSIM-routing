@@ -37,7 +37,7 @@ I provide an example 3x3 grid topology to compare against the existing route cal
 - routingHelper.CalculateAllPossibleRoutes();
 - routingHelper.CalculateLFIDRoutes();
  
-in the [ndnSIM/examples/grid.cpp] file, then run:
+in the [ndnSIM/examples/grid.cpp](ndnSIM/examples/grid.cpp) file, then run:
 
 ```bash
 ./waf --run grid
