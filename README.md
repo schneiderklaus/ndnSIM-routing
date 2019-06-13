@@ -48,6 +48,6 @@ The output will show the nexthops at each node for destination node 8, and any l
 
 ## Changes in Forwarding strategy 
 
-LFID requires that the forwarding strategy always excludes the incoming face from the outgoing options. I provide an example implementation in [ndnSIM/NFD/daemon/fw/random-strategy.cpp](NFD/daemon/fw/random-strategy.cpp).
+LFID requires that the forwarding strategy always excludes the incoming face from the outgoing options. I provide an example implementation in [ndnSIM/NFD/daemon/fw/random-strategy.cpp](https://github.com/schneiderklaus/NFD-routing/blob/NFD-0.6.5-ndnSIM/daemon/fw/random-strategy.cpp).
 
 
