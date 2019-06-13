@@ -4,8 +4,8 @@ LFID (Loop-Free Inport-Dependent) Routing extends the ndnSIM route calculation t
 
 LFID provides a much better trade-off than the existing route calculation algorithms:
 
-1. CalculateRoutes(): Only provides a single shortest path nexthop. 
-2. CalculateAllPossibleRoutes(): Provides all possible nexthops, but many of them lead to loops. 
+1. ``CalculateRoutes():`` Only provides a single shortest path nexthop. 
+2. ``CalculateAllPossibleRoutes():`` Provides all possible nexthops, but many of them lead to loops. 
 
 LFID, on the other hand, maximizes the nexthop choice while also completely avoiding loops.
 
@@ -33,9 +33,9 @@ cd <ns-3-folder>
 ## Example Experiments
 
 I provide two example topologies to compare against the existing route calculation methods. Simply uncomment one of 
-- routingHelper.CalculateRoutes();
-- routingHelper.CalculateAllPossibleRoutes();
-- routingHelper.CalculateLFIDRoutes();
+- ``routingHelper.CalculateRoutes();``
+- ``routingHelper.CalculateAllPossibleRoutes();``
+- ``routingHelper.CalculateLFIDRoutes();``
  
 in the [ndnSIM/examples/grid.cpp](examples/grid.cpp) or [ndnSIM/examples/abilene.cpp](examples/abilene.cpp) file, then run:
 
