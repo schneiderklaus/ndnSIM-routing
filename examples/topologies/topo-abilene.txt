@@ -23,6 +23,7 @@ router8   NA        2       1
 router9   NA        2       1
 router10  NA        2       1
 
+router11  NA        2       1  #Test node without neighbors
 
 # Note that `node` can be any string. It is possible to access to the node by name using Names::Find, see examples.
 

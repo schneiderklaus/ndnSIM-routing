@@ -50,10 +50,14 @@ AbsFib::AbsFib(const Ptr<GlobalRouter>& own, int nodes) :
 }
 
 void AbsFib::checkInputs() {
+  if (nodeDegree <= 0) {
+    std::cerr << nodeName << " has a degree of " << nodeDegree << "!\n\n";
+  }
+
   const auto MAX_SIZE {1e5};
   assert(nodeId >= 0 && nodeId <= MAX_SIZE);
   assert(nodeName.size() > 0 && nodeName.size() <= MAX_SIZE);
-  assert(nodeDegree > 0 && nodeDegree <= MAX_SIZE);
+  assert(nodeDegree >= 0 && nodeDegree <= MAX_SIZE);
   assert(numNodes > 1 && numNodes <= MAX_SIZE);
 }
 
@@ -206,7 +210,8 @@ void AbsFib::checkFib() const {
   assert(perDstFib.size() > 0);
 
   for (const auto& fibSet : perDstFib) {
-    assert(fibSet.second.size() > 0);
+    const size_t numNhs = fibSet.second.size();
+    assert(numNhs >= 0); // Was checking > 0.
 
     bool hasDownward{false};
     std::unordered_set<int> nextHopSet {};
@@ -221,7 +226,7 @@ void AbsFib::checkFib() const {
       assert(nextHopSet.count(nextHop.getNhId()) == 0);
       nextHopSet.emplace(nextHop.getNhId());
     }
-    assert(hasDownward);
+    assert(hasDownward || numNhs == 0);
     assert(nextHopSet.size() == fibSet.second.size());
   }
 }
